@@ -6,6 +6,6 @@
 class distance {
 	public int fun_distance(int x1, int y1, int x2, int y2){
 		// Your code goes here
-		return 0;
+		return (int)Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
 	}
 }
