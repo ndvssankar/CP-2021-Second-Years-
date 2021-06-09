@@ -29,13 +29,15 @@ public class TestRunner {
          System.out.println("===============================");
          for (Failure failure : result.getFailures()) {
             int index = failure.getDescription().toString().indexOf("(");
-            System.out.println("Test Case : " + failure.getDescription().toString().substring(8, index));
+            String msg = failure.getMessage();
+            msg = msg.substring(0, 2);
+            System.out.println("Test Case : " + failure.getDescription().toString().substring(8, index) + "." + msg);
             int start = failure.getMessage().indexOf("<");
             int end = failure.getMessage().indexOf(">");
-            System.out.println("Your Output : " + failure.getMessage().substring(start+1, end));
+            System.out.println("Expected Output : " + failure.getMessage().substring(start+1, end));
             start = failure.getMessage().indexOf("<", start + 1);
             end = failure.getMessage().indexOf(">", end + 1);
-            System.out.println("Expected Output : " + failure.getMessage().substring(start+1, end));
+            System.out.println("Your Output : " + failure.getMessage().substring(start+1, end));
             System.out.println("===============================");
          }
          System.out.println((result.getRunCount() - result.getFailureCount()) + " / " + result.getRunCount() + " Test Cases Passed....");
