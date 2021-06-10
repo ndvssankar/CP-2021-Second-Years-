@@ -5,7 +5,7 @@
 
 public class IsPerfectSquare {
 	public boolean isPerfectSquare(int n) {
-		// Your code goes here
-		return false;
+		int x = (int)Math.sqrt(n);
+		return x*x == n;
 	}
 }
